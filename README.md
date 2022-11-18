@@ -1,6 +1,8 @@
 http-client-mock
 ===
 
+[![codecov](https://codecov.io/gh/michimani/http-client-mock/branch/main/graph/badge.svg?token=MAS7YVKL9P)](https://codecov.io/gh/michimani/http-client-mock)
+
 This is a package to generate a mock of `http.Client` in Go language. You can easily generate a http.
 
 # Usage
