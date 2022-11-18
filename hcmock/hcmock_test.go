@@ -151,5 +151,4 @@ func Test_MockClientDo(t *testing.T) {
 			asst.Equal(eb, rb)
 		})
 	}
-
 }
