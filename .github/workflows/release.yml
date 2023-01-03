@@ -23,34 +23,6 @@ jobs:
     - name: Test code
       run: go test github.com/michimani/http-client-mock/... -shuffle=on
 
-  setup-release:
-    name: Setup release
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-    - name: Create release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        draft: false
-        prerelease: false
-
-    - name: Get url to upload to release from output
-      env:
-        url: ${{ steps.create_release.outputs.upload_url }}
-      run: |
-        mkdir artifact
-        echo $url > artifact/url.txt
-    - name: Upload artifact to share url with other jobs
-      uses: actions/upload-artifact@v1
-      with:
-        name: artifact
-        path: artifact/url.txt
-
   create-release:
     name: Build extension
     needs: test
